@@ -1,6 +1,5 @@
 # ForUMhub (UM Forum & Marketplace) ✅
 
-**Short description:**
 ForUMhub is a mobile forum and marketplace built with Flutter for University of Mindanao students. The app allows students to post announcements/questions, sell and buy items, chat with one another, and receive notifications. It focuses on a simple, responsive Android experience.
 
 ## Team
