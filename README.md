@@ -65,8 +65,8 @@ Notes:
 - Release `v0.1.0` contains an attached release APK (uploaded). For future releases, tag with semantic versioning and attach produced artifacts.
 
 ## Contact
-- Joseph Alejo — joseph@example.com (replace with real contact if desired)
-- Christopher Insik — christopher@example.com (replace with real contact if desired)
+- Joseph Alejo 
+- Christopher Insik 
 
 ---
 
