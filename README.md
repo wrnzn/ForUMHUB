@@ -1,57 +1,79 @@
-# ForUMhub
+# ForUMhub (UM Forum & Marketplace) ✅
 
-**Short description:** ForUMhub is a forum + marketplace mobile app for UM students in Tagum — users can post questions, announcements, sell/buy items or services, comment, upvote, bookmark, chat, and receive notifications.
+**Short description:**
+ForUMhub is a mobile forum and marketplace built with Flutter for University of Mindanao students. The app allows students to post announcements/questions, sell and buy items, chat with one another, and receive notifications. It focuses on a simple, responsive Android experience.
 
 ## Team
-- Team name: (replace)
-- Members: (replace with names and roles)
+- Joseph Alejo — Developer
+- Christopher Insik — Developer
 
-## Key features
-- Multi-screen Flutter app (Home feed, Post detail, Create/Edit post, Market pages, Chat, Notifications, Profile)
-- Firebase backend: Authentication, Firestore for posts/chat/notifications, Storage for uploaded images
-- Transactional functions: create/edit/delete posts & comments, upvote, bookmark, messaging
-- Offline-friendly UI and responsive design using Material 3 and custom theme
+## What the app does 🔎
+- Post creation, edit, and deletion (text + images)
+- Commenting, upvoting, and bookmarking posts
+- Marketplace: list products, view details, and contact sellers
+- Real-time chat between users (one-to-one conversations)
+- User authentication (Firebase Auth)
+- Notifications for messages, replies, and interactions
+- Profile management and basic search
 
-## Tech stack
-- Flutter (Dart)
-- Firebase: Authentication, Cloud Firestore, Cloud Storage, (optionally FCM)
-- State management: (project-specific - e.g., setState/Provider)
+## Tech stack & architecture 🔧
+- Flutter (Dart) — UI and mobile logic
+- Firebase — Authentication, Cloud Firestore (data), Firebase Storage (media)
+- Clean-ish services layer: `AuthService`, `PostService`, `ChatService`, `MessageService`, `NotificationService`, `UserService`
+- Platform focus: **Android** (project contains other platform folders but Android is primary target)
 
-## Local setup
-1. Clone repository
-2. Install Flutter SDK and set up environment (Windows instructions)
-3. Add platform Firebase config files:
-   - Android: `android/app/google-services.json`
-   - iOS: `ios/Runner/GoogleService-Info.plist`
-   - Or use `flutterfire` CLI to generate `firebase_options.dart` per platform
-4. Run `flutter pub get`, then `flutter run`
+## Android-focused setup (how to build and run) 📱
+1. Ensure Flutter SDK is installed (stable channel) and Android toolchain is configured.
+2. Clone the repository:
+   ```bash
+   git clone https://github.com/wrnzn/ForUMHUB.git
+   cd ForUMHUB
+   ```
+3. Add Android Firebase config (if using Firebase features locally):
+   - Place `google-services.json` in `android/app/` or configure `flutterfire` CLI to generate `firebase_options.dart`.
+4. Get dependencies and build a release APK:
+   ```bash
+   flutter pub get
+   flutter build apk --release
+   ```
+5. Install the APK onto a device or emulator:
+   ```bash
+   adb install -r build/app/outputs/flutter-apk/app-release.apk
+   ```
 
-> Security note: **Do not** commit API keys or secrets to the repository. `lib/main.dart` was updated to avoid hard-coded `FirebaseOptions`.
+Notes:
+- The repository currently contains a release `v0.1.0` with a prebuilt APK attached.
+- Do not commit `google-services.json`, `firebase_options.dart`, keystore files, or any secrets. They are ignored in `.gitignore`.
 
-## APK / Release
-- Use `flutter build apk --release` to build a release APK
-- Prepare release notes and tag using semantic versioning (e.g., `v0.1.0`)
+## Usage & testing 🧪
+- Run `flutter run` for development.
+- Run `flutter test` to run unit/widget tests.
+- The app was tested on Android (API level 30+) and supports release builds.
 
-## Partial commit plan (example sequence for professor timeline)
-1. `init: project scaffold + basic routes` — commit initial screens and theme
-2. `feat: auth + user model` — add registration/login flows and `AuthService`
-3. `feat: posts + post_service` — implement post CRUD and feed
-4. `feat: comments + upvotes + bookmarks` — comment system and interactions
-5. `feat: marketplace` — product models and market pages
-6. `feat: chat + messaging` — chat pages and message service
-7. `feat: notifications + presence` — notification system
-8. `chore: docs + ci + security` — add docs, CI, remove secrets
-9. `release: v0.1.0` — publish APK and PDF doc
+## Files & important paths 📁
+- `lib/` — Flutter source code
+- `lib/pages/` — Screens (home, chat, market, profile, etc.)
+- `lib/services/` — Firebase service layer
+- `android/` — Android project and Gradle config
+- `build/app/outputs/flutter-apk/` — generated APK path after `flutter build apk`
 
-## Contribution
-- Please open issues and PRs; use the `develop` branch for active work and `main` for releases.
+## Contribution & branching model 🌱
+- Use `develop` for active work and open PRs against it. Protect `main` for releases.
+- Commit messages follow the `chore/feat/fix/release` style used in this repo.
 
-## Professor submission checklist
-- APK file (debug or release)
-- GitHub repo link with commit history demonstrating progress
-- Short Documentation PDF (title, team, description, screenshots, db structure, tech stack)
-- App logo (custom branding)
+## Release & APK
+- Release `v0.1.0` contains an attached release APK (uploaded). For future releases, tag with semantic versioning and attach produced artifacts.
+
+## Contact
+- Joseph Alejo — joseph@example.com (replace with real contact if desired)
+- Christopher Insik — christopher@example.com (replace with real contact if desired)
 
 ---
 
-For detailed documentation and the rubric mapping, see `docs/Project_Documentation.md`.
+For full docs, architecture details, and the rubric mapping see `docs/Project_Documentation.md` and `docs/Commit_Plan.md`.
+
+If you'd like, I can also:
+- Remove non-Android platform directories (ios/, macos/, linux/, web/, windows/) and open a PR for that change, or
+- Keep them but leave them unmodified (current state).
+
+If you want any wording changed, role titles added, or email addresses fixed, tell me and I’ll update it. Thank you!
