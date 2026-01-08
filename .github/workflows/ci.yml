@@ -11,6 +11,9 @@ on:
 jobs:
   analyze_and_test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ForUMHUB
     steps:
       - uses: actions/checkout@v4
       - name: Set up Flutter
@@ -27,6 +30,9 @@ jobs:
   build_apk:
     if: github.event_name == 'release'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ForUMHUB
     steps:
       - uses: actions/checkout@v4
       - name: Set up Flutter
