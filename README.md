@@ -71,9 +71,3 @@ Notes:
 ---
 
 For full docs, architecture details, and the rubric mapping see `docs/Project_Documentation.md` and `docs/Commit_Plan.md`.
-
-If you'd like, I can also:
-- Remove non-Android platform directories (ios/, macos/, linux/, web/, windows/) and open a PR for that change, or
-- Keep them but leave them unmodified (current state).
-
-If you want any wording changed, role titles added, or email addresses fixed, tell me and I’ll update it. Thank you!
